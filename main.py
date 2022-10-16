@@ -20,15 +20,15 @@ if __name__ == '__main__':
     plt.plot(xlist, ylist)
     plt.show()
 
-data = ET.Element('data')
-xdata = ET.SubElement(data, 'xdata')
-ydata = ET.SubElement(data, 'ydata')
-for i in range(count):
-    ET.SubElement(xdata, 'x').text = str(xlist[i])
-    ET.SubElement(ydata, 'y').text = str(ylist[i])
+    data = ET.Element('data')
+    xdata = ET.SubElement(data, 'xdata')
+    ydata = ET.SubElement(data, 'ydata')
+    for i in range(count):
+        ET.SubElement(xdata, 'x').text = str(xlist[i])
+        ET.SubElement(ydata, 'y').text = str(ylist[i])
 
-if not os.path.exists('results'):
-    os.mkdir('results')
-os.chdir(os.path.join(os.getcwd(), 'results'))
-tree = ET.ElementTree(data)
-tree.write('results.xml')
+    if not os.path.exists('results'):
+        os.mkdir('results')
+    os.chdir(os.path.join(os.getcwd(), 'results'))
+    tree = ET.ElementTree(data)
+    tree.write('results.xml')
